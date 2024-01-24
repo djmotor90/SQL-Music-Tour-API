@@ -28,7 +28,7 @@ This project is a RESTful API for managing a music tour. It includes functionali
 
 ### Installation
 
-1. Clone the repository:
+1. Clone the repository: ```https://github.com/djmotor90/SQL-Music-Tour-API.git```
 2. Navigate to the project directory:
 ```cd SQL-Music-Tour-API```
 4. Install the dependencies:
