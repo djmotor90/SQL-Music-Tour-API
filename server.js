@@ -1,13 +1,18 @@
 // DEPENDENCIES
 const express = require('express')
 const app = express()
+const bandsRouter = require('./controllers/bandcontroller');
+const eventsRouter = require('./controllers/eventController');
+const stagesRouter = require('./controllers/stageController');
 require('dotenv').config()
-// const { Sequelize } = require('sequelize')
 
 // CONFIGURATION / MIDDLEWARE
-
-app.use(express.json())
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }))
+app.use('/bands', bandsRouter);
+app.use('/events', eventsRouter);
+app.use('/stages', stagesRouter);
+
 
 // ROOT
 app.get('/', (req, res) => {
@@ -15,17 +20,6 @@ app.get('/', (req, res) => {
         message: 'Welcome to the Tour API'
     })
 })
-
-// //SEQUELIZE CONNECTION
-// const sequelize = new Sequelize(process.env.PG_URI)
-
-// try {
-//     sequelize.authenticate() 
-//     console.log(`Connected with Sequelize at ${process.env.PG_URI}`) 
-// } catch(err) {
-//     console.log(`Unable to connect to PG: ${err}`) 
-// }
-
 
 // LISTEN
 app.listen(process.env.PORT, () => {
